@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🇮🇩 REHANSTORE | HSI MAX</title>
+<style>
+*{box-sizing:border-box}
+html{background:#080d19} body{margin:0;background:transparent;color:#fff;font-family:Arial,sans-serif;min-height:100vh} #bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none} .bg-overlay{position:fixed;inset:0;background:rgba(3,8,20,.62);z-index:0;pointer-events:none} body>header,body>.hero,body>main,body>footer,body>.modal{position:relative;z-index:1}
+header{text-align:center;padding:20px 10px;border-bottom:2px solid #168cff;overflow:hidden}
+.brand-window{height:45px;position:relative;overflow:hidden}
+.brand{position:absolute;left:-100%;white-space:nowrap;font-size:30px;font-weight:900;text-shadow:0 0 15px #168cff,0 0 20px #ff7926;animation:jalan 7s linear infinite}
+@keyframes jalan{from{left:-100%}to{left:110%}}
+header p{color:#c7d9f4;font-size:12px}
+.hero{text-align:center;padding:35px 16px}
+.hero h1{font-size:clamp(28px,7vw,45px)}
+.hero h1 span{color:#ff8a35}
+.hero p{color:#bdcce0;line-height:1.6}
+button{cursor:pointer;font-weight:bold;border:0;border-radius:10px;padding:13px 16px;color:white;background:linear-gradient(100deg,#087dff,#ff6d25)}
+.section{max-width:1000px;margin:auto;padding:20px 14px 35px}
+.section h2{text-align:center}
+.desc{text-align:center;color:#aebed5;font-size:13px;margin-bottom:25px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:15px}
+.card{background:rgba(16,26,44,.84);border:1px solid #2b4568;border-radius:15px;padding:18px;display:flex;flex-direction:column;box-shadow:0 8px 24px #0005}
+.icon{font-size:34px;margin-bottom:12px}
+.card h3{margin:0 0 10px}
+.card p{color:#b4c2d8;font-size:13px;line-height:1.5;flex:1}
+.price{color:#ffb079;font-weight:bold;font-size:18px;margin:10px 0 15px}
+.card button{width:100%}
+.info{background:rgba(16,26,44,.86);border:1px solid #2b4568;border-radius:12px;padding:16px;margin-top:22px;color:#c1cde0;font-size:13px;line-height:1.7}
+footer{text-align:center;padding:25px;color:#9eafc9;font-size:12px;border-top:1px solid #263b58}
+.modal{display:none;position:fixed;inset:0;z-index:9999;background:#000c;padding:12px;overflow-y:auto;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-box{position:relative;width:100%;max-width:450px;max-height:95vh;overflow-y:auto;background:#101a2c;border:1px solid #428de0;border-radius:17px;padding:21px}
+.modal-box h2{margin:0 35px 8px 0}
+.sub{font-size:13px;color:#b1c1d8;margin-bottom:20px}
+.close{position:absolute;right:12px;top:12px;width:36px;height:36px;padding:0;font-size:24px;background:#27364c}
+.field{margin:14px 0}
+.field label{display:block;font-size:13px;margin-bottom:7px;color:#d5e3f6}
+.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #3b506f;background:#080f1d;color:white;font:inherit;font-size:14px}
+.field input[type=file]{padding:10px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:1px solid #168cff}
+.total{background:#080f1d;border:1px solid #2b4568;border-radius:11px;padding:14px;margin:16px 0}
+.total small{color:#afbed4}
+.total strong{display:block;font-size:24px;color:#ffb079;margin-top:5px}
+.hint{font-size:12px;color:#aebed5;line-height:1.5;margin-top:8px}
+.full{width:100%;margin-top:9px}
+.secondary{background:#27364c}
+.error{display:none;color:#ff9c8c;font-size:13px;margin-top:12px}
+</style>
+</head>
+<body>
+<video id="bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src="background.mp4" type="video/mp4"></video>
+<div class="bg-overlay" aria-hidden="true"></div>
+
+<header>
+  <div class="brand-window"><div class="brand">🇮🇩 REHANSTORE</div></div>
+  <p>STORE LAYANAN HSI MAX</p>
+</header>
+
+<section class="hero">
+  <h1>UPGRADE GAME<br><span>BERSAMA REHANSTORE</span></h1>
+  <p>Coin, diamond, livery motor, sound knalpot dan racikan motor.<br>Pilih produk untuk mulai memesan.</p>
+  <button type="button" onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">LIHAT PRODUK ↓</button>
+</section>
+
+<main class="section" id="produk">
+  <h2>🔥 DAFTAR PRODUK</h2>
+  <p class="desc">Pilih produk lalu isi form pesanan.</p>
+
+  <div class="products">
+    <article class="card">
+      <div class="icon">🪙</div>
+      <h3>Coin HSI MAX</h3>
+      <p>1 paket mendapatkan 2M coin.</p>
+      <div class="price">Rp1.000 / paket</div>
+      <button type="button" onclick="openOrder('Coin HSI MAX')">PESAN SEKARANG</button>
+    </article>
+
+    <article class="card">
+      <div class="icon">💎</div>
+      <h3>Diamond HSI MAX</h3>
+      <p>1 paket mendapatkan 1.000 DM.</p>
+      <div class="price">Rp5.000 / paket</div>
+      <button type="button" onclick="openOrder('Diamond HSI MAX')">PESAN SEKARANG</button>
+    </article>
+
+    <article class="card">
+      <div class="icon">🏍️</div>
+      <h3>Livery Motor Non Coak</h3>
+      <p>Desain livery sesuai permintaan. Harga akhir mengikuti tingkat kesulitan.</p>
+      <div class="price">Mulai Rp5.000</div>
+      <button type="button" onclick="openOrder('Livery Motor Non Coak')">PESAN SEKARANG</button>
+    </article>
+
+    <article class="card">
+      <div class="icon">🎨</div>
+      <h3>Livery Motor Coak</h3>
+      <p>Desain livery coak sesuai permintaan.</p>
+      <div class="price">Mulai Rp15.000</div>
+      <button type="button" onclick="openOrder('Livery Motor Coak')">PESAN SEKARANG</button>
+    </article>
+
+    <article class="card">
+      <div class="icon">🔊</div>
+      <h3>Sound Knalpot</h3>
+      <p>Sound knalpot untuk motor pilihanmu.</p>
+      <div class="price">Rp3.000</div>
+      <button type="button" onclick="openOrder('Sound Knalpot')">PESAN SEKARANG</button>
+    </article>
+
+    <article class="card">
+      <div class="icon">⚙️</div>
+      <h3>Racikan All Motor</h3>
+      <p>Racikan motor sesuai kebutuhan.</p>
+      <div class="price">Rp3.000</div>
+      <button type="button" onclick="openOrder('Racikan All Motor')">PESAN SEKARANG</button>
+    </article>
+  </div>
+
+  <div class="info">
+    <b>📌 INFORMASI</b><br>
+    • Harga livery dikonfirmasi admin berdasarkan kesulitan.<br>
+    • Untuk layanan motor, isi kolom MOTOR?.<br>
+    • Livery wajib menyertakan maksimal 5 foto referensi.<br>
+    • Pembayaran DANA/QRIS dikonfirmasi admin melalui WhatsApp.<br>
+    • Jangan pernah memberikan password atau kode OTP akun.
+  </div>
+</main>
+
+<footer>🇮🇩 <b>REHANSTORE</b><br><br>HSI MAX • Terima kasih sudah berkunjung</footer>
+
+<div class="modal" id="orderModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="close" type="button" onclick="closeOrder()" aria-label="Tutup">×</button>
+    <h2>🛒 Form Pesanan</h2>
+    <p class="sub">Lengkapi pesanan, lalu kirim ke WhatsApp admin.</p>
+
+    <form id="orderForm">
+      <div class="field">
+        <label for="buyerName">Nama pemesan *</label>
+        <input id="buyerName" required maxlength="60" placeholder="Masukkan nama">
+      </div>
+
+      <div class="field">
+        <label for="productName">Produk</label>
+        <input id="productName" readonly>
+      </div>
+
+      <div class="field" id="quantityGroup">
+        <label for="quantity">Jumlah paket *</label>
+        <input id="quantity" type="number" min="1" max="100" step="1" value="1" inputmode="numeric" required>
+      </div>
+
+      <div class="field" id="motorGroup" style="display:none">
+        <label for="motorName">MOTOR? *</label>
+        <input id="motorName" maxlength="100" placeholder="Contoh: Vario 125, Beat, RX King">
+      </div>
+
+      <div class="field" id="detailsGroup">
+        <label for="details">Detail pesanan</label>
+        <textarea id="details" rows="3" maxlength="500" placeholder="Tulis detail tambahan pesanan"></textarea>
+      </div>
+
+      <div class="field" id="photoGroup" style="display:none">
+        <label for="photos">Upload Foto (maksimal 5 foto) *</label>
+        <input id="photos" type="file" accept="image/*" multiple>
+        <div class="hint" id="photoHint">Pilih maksimal 5 foto referensi livery.</div>
+      </div>
+
+      <div class="field">
+        <label for="payment">Metode pembayaran *</label>
+        <select id="payment" required>
+          <option value="">Pilih pembayaran</option>
+          <option value="DANA">DANA</option>
+          <option value="QRIS">QRIS</option>
+        </select>
+      </div>
+
+      <div class="total">
+        <small>Estimasi total</small>
+        <strong id="totalPrice">Rp1.000</strong>
+        <div class="hint" id="priceHint">1 paket = 2M Coin.</div>
+      </div>
+
+      <button class="full" type="submit">KIRIM PESANAN KE WHATSAPP ↗</button>
+      <button class="full secondary" type="button" onclick="closeOrder()">BATAL</button>
+      <div class="error" id="formError"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  const ADMIN_WA = "6283115303755";
+
+  const PRICES = {
+    "Coin HSI MAX": 1000,
+    "Diamond HSI MAX": 5000,
+    "Livery Motor Non Coak": 5000,
+    "Livery Motor Coak": 15000,
+    "Sound Knalpot": 3000,
+    "Racikan All Motor": 3000
+  };
+
+  const PACKAGE_INFO = {
+    "Coin HSI MAX": "1 paket = 2M Coin.",
+    "Diamond HSI MAX": "1 paket = 1.000 DM."
+  };
+
+  const MOTOR_PRODUCTS = [
+    "Livery Motor Non Coak",
+    "Livery Motor Coak",
+    "Racikan All Motor",
+    "Sound Knalpot"
+  ];
+
+  const LIVERY_PRODUCTS = [
+    "Livery Motor Non Coak",
+    "Livery Motor Coak"
+  ];
+
+  const modal = document.getElementById("orderModal");
+  const form = document.getElementById("orderForm");
+  const productInput = document.getElementById("productName");
+  const quantityInput = document.getElementById("quantity");
+  const quantityGroup = document.getElementById("quantityGroup");
+  const motorGroup = document.getElementById("motorGroup");
+  const motorInput = document.getElementById("motorName");
+  const detailsGroup = document.getElementById("detailsGroup");
+  const detailsInput = document.getElementById("details");
+  const photoGroup = document.getElementById("photoGroup");
+  const photosInput = document.getElementById("photos");
+  const photoHint = document.getElementById("photoHint");
+  const totalPrice = document.getElementById("totalPrice");
+  const priceHint = document.getElementById("priceHint");
+  const errorBox = document.getElementById("formError");
+
+  let currentProduct = "";
+
+  function money(n){
+    return new Intl.NumberFormat("id-ID",{
+      style:"currency",
+      currency:"IDR",
+      maximumFractionDigits:0
+    }).format(n);
+  }
+
+  function updateTotal(){
+    if(MOTOR_PRODUCTS.includes(currentProduct)){
+      totalPrice.textContent = money(PRICES[currentProduct]);
+      priceHint.textContent = LIVERY_PRODUCTS.includes(currentProduct)
+        ? "Harga awal. Harga akhir dikonfirmasi admin berdasarkan tingkat kesulitan."
+        : "Harga per layanan. Konfirmasi detail pesanan kepada admin.";
+      return;
+    }
+
+    const raw = quantityInput.value;
+
+    if(raw === ""){
+      totalPrice.textContent = "Masukkan jumlah paket";
+      priceHint.textContent = "Jumlah harus antara 1 sampai 100 paket.";
+      return;
+    }
+
+    const qty = Number(raw);
+    if(!Number.isInteger(qty) || qty < 1 || qty > 100){
+      totalPrice.textContent = "Jumlah belum valid";
+      priceHint.textContent = "Masukkan angka bulat antara 1 sampai 100.";
+      return;
+    }
+
+    totalPrice.textContent = money(PRICES[currentProduct] * qty);
+    priceHint.textContent = PACKAGE_INFO[currentProduct] || "";
+  }
+
+  window.openOrder = function(product){
+    if(!Object.prototype.hasOwnProperty.call(PRICES,product)){
+      alert("Produk tidak ditemukan.");
+      return;
+    }
+
+    currentProduct = product;
+    form.reset();
+    productInput.value = product;
+    quantityInput.value = "1";
+    errorBox.style.display = "none";
+    errorBox.textContent = "";
+    photoHint.textContent = "Pilih maksimal 5 foto referensi livery.";
+    photoHint.style.color = "";
+
+    const needsMotor = MOTOR_PRODUCTS.includes(product);
+    const needsPhotos = LIVERY_PRODUCTS.includes(product);
+
+    quantityGroup.style.display = needsMotor ? "none" : "block";
+    quantityInput.required = !needsMotor;
+
+    motorGroup.style.display = needsMotor ? "block" : "none";
+    motorInput.required = needsMotor;
+
+    detailsGroup.style.display = needsPhotos ? "none" : "block";
+    detailsInput.required = false;
+
+    photoGroup.style.display = needsPhotos ? "block" : "none";
+    photosInput.required = needsPhotos;
+    photosInput.value = "";
+
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+    updateTotal();
+
+    setTimeout(function(){
+      document.getElementById("buyerName").focus();
+    },100);
+  };
+
+  window.closeOrder = function(){
+    modal.classList.remove("show");
+    document.body.style.overflow = "";
+  };
+
+  quantityInput.addEventListener("input",updateTotal);
+
+  photosInput.addEventListener("change",function(){
+    if(this.files.length > 5){
+      this.value = "";
+      photoHint.textContent = "Maksimal 5 foto. Silakan pilih ulang.";
+      photoHint.style.color = "#ff9c8c";
+      return;
+    }
+
+    for(const file of this.files){
+      if(!file.type.startsWith("image/")){
+        this.value = "";
+        photoHint.textContent = "Hanya file gambar yang boleh diunggah.";
+        photoHint.style.color = "#ff9c8c";
+        return;
+      }
+    }
+
+    photoHint.style.color = "#aebed5";
+    photoHint.textContent = this.files.length
+      ? this.files.length + " foto dipilih. Kirim juga foto tersebut melalui WhatsApp."
+      : "Pilih maksimal 5 foto referensi livery.";
+  });
+
+  modal.addEventListener("click",function(event){
+    if(event.target === modal) window.closeOrder();
+  });
+
+  document.addEventListener("keydown",function(event){
+    if(event.key === "Escape" && modal.classList.contains("show")){
+      window.closeOrder();
+    }
+  });
+
+  form.addEventListener("submit",function(event){
+    event.preventDefault();
+    errorBox.style.display = "none";
+
+    const name = document.getElementById("buyerName").value.trim();
+    const payment = document.getElementById("payment").value;
+    const motor = motorInput.value.trim();
+    const details = detailsInput.value.trim();
+    const needsMotor = MOTOR_PRODUCTS.includes(currentProduct);
+    const needsPhotos = LIVERY_PRODUCTS.includes(currentProduct);
+    const rawQty = quantityInput.value;
+    const quantity = Number(rawQty);
+
+    if(!name || !payment){
+      showError("Lengkapi nama pemesan dan metode pembayaran.");
+      return;
+    }
+
+    if(needsMotor && !motor){
+      showError("Isi kolom MOTOR? terlebih dahulu.");
+      motorInput.focus();
+      return;
+    }
+
+    if(!needsMotor && (
+      rawQty === "" ||
+      !Number.isInteger(quantity) ||
+      quantity < 1 ||
+      quantity > 100
+    )){
+      showError("Jumlah paket harus berupa angka bulat dari 1 sampai 100.");
+      quantityInput.focus();
+      return;
+    }
+
+    if(needsPhotos && photosInput.files.length === 0){
+      showError("Upload minimal 1 foto referensi livery.");
+      photosInput.focus();
+      return;
+    }
+
+    if(needsPhotos && photosInput.files.length > 5){
+      showError("Maksimal 5 foto.");
+      return;
+    }
+
+    const total = needsMotor
+      ? "Mulai " + money(PRICES[currentProduct]) + " (konfirmasi admin)"
+      : money(PRICES[currentProduct] * quantity);
+
+    const lines = [
+      "Halo Admin REHANSTORE, saya ingin memesan.",
+      "",
+      "Nama: " + name,
+      "Produk: " + currentProduct,
+      "Motor: " + (needsMotor ? motor : "Tidak diperlukan"),
+      "Jumlah paket: " + (needsMotor ? "Tidak menggunakan paket" : quantity),
+      "Estimasi harga: " + total,
+      "Pembayaran: " + payment,
+      "Detail tambahan: " + (details || "-"),
+      "Jumlah foto referensi: " + (needsPhotos ? photosInput.files.length : "Tidak ada"),
+      "",
+      needsPhotos
+        ? "Saya akan melampirkan foto referensi di chat WhatsApp ini."
+        : "",
+      "Mohon konfirmasi pesanan dan instruksi pembayaran resmi. Terima kasih."
+    ];
+
+    const url = "https://wa.me/" + ADMIN_WA + "?text=" +
+      encodeURIComponent(lines.join("\n"));
+
+    window.location.href = url;
+  });
+
+  function showError(message){
+    errorBox.textContent = message;
+    errorBox.style.display = "block";
+  }
+})();
+</script>
+</body>
+</html>
